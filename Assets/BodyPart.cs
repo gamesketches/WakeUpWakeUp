@@ -8,16 +8,20 @@ public class BodyPart : MonoBehaviour
     CapsuleCollider2D collider;
     Rigidbody2D rigidBody;
     Vector3 lastPos;
+    Color startColor;
+    SpriteRenderer renderer;
     // Start is called before the first frame update
     void Start()
     {
         dragging = false;
         collider = GetComponent<CapsuleCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
+        startColor = renderer.color;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
        if(Input.GetMouseButtonDown(0)) {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -26,14 +30,15 @@ public class BodyPart : MonoBehaviour
                 lastPos = pos;
             }
         } else if(dragging) {
+            renderer.color = Color.grey;
             if(Input.GetMouseButton(0)) {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                //transform.position += (pos - lastPos);
-                rigidBody.MovePosition(transform.position + (pos - lastPos));
+                rigidBody.MovePosition(transform.position + ((pos - lastPos) * Time.fixedDeltaTime));
                 lastPos = pos;
-            }
-        } else {
+            } else {
             dragging = false;
+            renderer.color = startColor;
+            }
         }
     }
 }
