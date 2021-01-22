@@ -5,7 +5,7 @@ using UnityEngine;
 public class BodyPart : MonoBehaviour
 {
     bool dragging;
-    CapsuleCollider2D collider;
+    PolygonCollider2D collider;
     Rigidbody2D rigidBody;
     Vector3 lastPos;
     Color startColor;
@@ -14,7 +14,7 @@ public class BodyPart : MonoBehaviour
     void Start()
     {
         dragging = false;
-        collider = GetComponent<CapsuleCollider2D>();
+        collider = GetComponent<PolygonCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         startColor = renderer.color;
