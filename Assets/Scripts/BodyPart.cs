@@ -38,6 +38,7 @@ public class BodyPart : MonoBehaviour
             } else {
             dragging = false;
             renderer.color = startColor;
+                //rigidBody.inertia = 0;
             }
         }
     }
