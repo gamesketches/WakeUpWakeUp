@@ -10,27 +10,31 @@ public class BodyPart2 : MonoBehaviour
     Vector3 lastPos;
     Color startColor;
     SpriteRenderer renderer;
-
+    float myWeight;
     bool move;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         dragging = false;
         collider = GetComponent<PolygonCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         startColor = renderer.color;
+        myWeight = rigidBody.mass;
     }
 
     private void OnMouseDown()
     {
         dragging = true;
+        rigidBody.mass = myWeight / 2;
     }
 
     private void OnMouseUp()
     {
         dragging = false;
+        rigidBody.mass = myWeight;
     }
 
     void Update()
@@ -41,7 +45,9 @@ public class BodyPart2 : MonoBehaviour
         }
         if (dragging == true)
         {
-            rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 40 * Time.deltaTime));
+           
+            rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 10 * Time.deltaTime));
+
         }
     }
 
