@@ -10,10 +10,13 @@ public class BodyPart : MonoBehaviour
     Vector3 lastPos;
     Color startColor;
     SpriteRenderer renderer;
+
+    bool move;
+   
     // Start is called before the first frame update
     void Start()
     {
-        dragging = false;
+        dragging = false; 
         collider = GetComponent<PolygonCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
@@ -23,23 +26,35 @@ public class BodyPart : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-       if(Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if(!dragging && collider.OverlapPoint(pos)) {
+            if (!dragging && collider.OverlapPoint(pos))
+            {
                 dragging = true;
                 lastPos = pos;
             }
-        } else if(dragging) {
+        }
+        if (dragging)
+        {
             renderer.color = Color.grey;
-            if(Input.GetMouseButton(0)) {
+            if (Input.GetMouseButton(0))
+            {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                rigidBody.MovePosition(transform.position + ((pos - lastPos) * Time.fixedDeltaTime));
+                rigidBody.MovePosition(transform.position + ((pos - lastPos) * 3 * Time.fixedDeltaTime));
                 lastPos = pos;
-            } else {
-            dragging = false;
-            renderer.color = startColor;
+            }
+            else
+            {
+                dragging = false;
+                renderer.color = startColor;
                 //rigidBody.inertia = 0;
             }
         }
     }
+
+
+
+
+
 }
