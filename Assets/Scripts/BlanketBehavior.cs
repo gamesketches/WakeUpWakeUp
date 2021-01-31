@@ -12,11 +12,19 @@ public class BlanketBehavior : MonoBehaviour
     Rigidbody2D rigidbody;
     bool falling;
     public Vector3 blanketTarget;
+	Vector3 startPosition;
+	public Sprite[] blanketAnimation;
+	float mouseDistance;
+	public float dragScale = 5;
+	SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<PolygonCollider2D>();
         rigidbody = GetComponent<Rigidbody2D>();
+		mouseDistance = 0;
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		startPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -37,16 +45,23 @@ public class BlanketBehavior : MonoBehaviour
             {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float offset = Mathf.Abs(pos.magnitude - lastPos.magnitude);
-                xScale -= offset;
+				mouseDistance += (offset * 2);
+				float adjustedDistance = Mathf.Clamp(mouseDistance / dragScale, 0, dragScale * blanketAnimation.Length - 1);
+				int spriteIndex = Mathf.FloorToInt(adjustedDistance);
+				spriteRenderer.sprite = blanketAnimation[spriteIndex];
+				if(spriteIndex < blanketAnimation.Length - 1) {
+					transform.position = Vector3.Lerp(startPosition, blanketTarget, (float)spriteIndex / (blanketAnimation.Length - 1));
+                	//transform.Translate(-offset * 0.5f, 0, 0);
+				}
+                /*xScale -= offset;
                 Vector3 curScale = transform.localScale;
                 curScale.x = xScale;
                 transform.localScale = curScale;
-                transform.Translate(-offset * 5, 0, 0);
                 if(xScale < xScaleLimit)
                 {
                     falling = true;
                     StartCoroutine(RemoveBlanket());
-                }
+                }*/
                 lastPos = pos;
             }
             else
