@@ -19,6 +19,8 @@ public class ShoeBehavior : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "foot") {
             Debug.Log("Winner!!");
+			transform.parent = other.gameObject.transform;
+			transform.localPosition = Vector3.zero;
         }
     }
 }

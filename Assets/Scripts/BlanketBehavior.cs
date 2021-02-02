@@ -17,6 +17,7 @@ public class BlanketBehavior : MonoBehaviour
 	float mouseDistance;
 	public float dragScale = 5;
 	SpriteRenderer spriteRenderer;
+	public float clickedScale;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class BlanketBehavior : MonoBehaviour
             {
                 dragging = true;
                 lastPos = pos;
+				transform.localScale = new Vector3(clickedScale, clickedScale, clickedScale);
             }
         }
         else if (dragging)
@@ -67,6 +69,7 @@ public class BlanketBehavior : MonoBehaviour
             else
             {
                 dragging = false;
+				transform.localScale = Vector3.one;
             }
         }
     }
