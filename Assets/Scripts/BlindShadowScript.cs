@@ -12,6 +12,7 @@ public class BlindShadowScript : MonoBehaviour
     public static bool blindsHaveBeenOpened;
     public GameObject BlindsGameObject;
     SpriteRenderer srBlinds;
+    public GameObject blindsBoltGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +28,14 @@ public class BlindShadowScript : MonoBehaviour
     {
         if (hideMyself)
         {
+            blindsBoltGameObject.transform.position = new Vector3(-9.25f, 10, 0);
             blindsHaveBeenOpened = true;
             srBlinds.sprite = openBlinds;
             myAlpha -= .05f;
             sr.color = new Color(0, 0, 0, myAlpha);
-            if (myAlpha <= 0) {
+            if (myAlpha <= -5) {
                 Destroy(gameObject);
+                //Destroy(blindsBoltGameObject.gameObject);
             }
         }
         else {
