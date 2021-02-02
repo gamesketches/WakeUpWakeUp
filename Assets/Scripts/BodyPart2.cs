@@ -13,6 +13,15 @@ public class BodyPart2 : MonoBehaviour
     float myWeight;
     bool move;
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "BlindString" && !BlindShadowScript.blindsHaveBeenOpened) {
+            print("here");
+            GameObject BShadow = GameObject.Find("BlindShadow");
+            BShadow.GetComponent<BlindShadowScript>().hideMyself = true;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

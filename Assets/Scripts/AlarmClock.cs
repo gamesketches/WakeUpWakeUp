@@ -24,7 +24,10 @@ public class AlarmClock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        animator.SetTrigger("TurnOff");
-        alarmBell.Stop();
+        if (collision.gameObject.layer == 0) {
+            animator.SetTrigger("TurnOff");
+            alarmBell.Stop();
+        }
+       
     }
 }
