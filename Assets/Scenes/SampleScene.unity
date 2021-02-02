@@ -1415,13 +1415,14 @@ GameObject:
   m_Component:
   - component: {fileID: 459941359}
   - component: {fileID: 459941360}
+  - component: {fileID: 459941361}
   m_Layer: 0
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &459941359
 Transform:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459941358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.04, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1892366720}
@@ -1475,7 +1476,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -8906587115230720157, guid: 51a8633a87cf24444b7ee8b5eb3ed3c8,
+  m_Sprite: {fileID: 1891815686109375092, guid: b919a953e32c045c09eefdcd27475119,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1487,6 +1488,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &459941361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459941358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d5de98c00f040e785be4ed00053b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairSprites:
+  - {fileID: 1891815686109375092, guid: b919a953e32c045c09eefdcd27475119, type: 3}
+  - {fileID: 5529643598187555557, guid: b919a953e32c045c09eefdcd27475119, type: 3}
+  velocityThreshold: 0.5
+  frameDelay: 4
 --- !u!1 &517996627
 GameObject:
   m_ObjectHideFlags: 0
@@ -4971,7 +4989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892366719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18, y: 2.76, z: -0.5998192}
+  m_LocalPosition: {x: -0.01, y: 2.48, z: -0.5998192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 459941359}
@@ -4995,7 +5013,7 @@ RelativeJoint2D:
   m_MaxTorque: 10000
   m_CorrectionScale: 0.3
   m_AutoConfigureOffset: 1
-  m_LinearOffset: {x: -0.18000007, y: -1.88}
+  m_LinearOffset: {x: 0.00999999, y: -1.6}
   m_AngularOffset: 0
 --- !u!50 &1892366722
 Rigidbody2D:
@@ -5057,7 +5075,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3160267496059183695, guid: b11c71d14bd05694e83474c5c4636921,
+  m_Sprite: {fileID: -5124682401688967275, guid: b919a953e32c045c09eefdcd27475119,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
