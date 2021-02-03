@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - foot
+  - Scenery
   layers:
   - Default
   - TransparentFX
