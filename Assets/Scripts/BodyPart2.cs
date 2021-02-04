@@ -39,7 +39,7 @@ public class BodyPart2 : MonoBehaviour
 
     private void OnMouseDown()
     {
-		if(curStage != InteractionStage.TitleScreen){
+		if(curStage == InteractionStage.EverythingElse){
 			dragging = true;
 			rigidBody.mass = myWeight / 2;
 		}

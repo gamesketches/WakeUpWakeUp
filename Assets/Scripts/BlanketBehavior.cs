@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlanketBehavior : MonoBehaviour
 {
-    PolygonCollider2D collider;
     float xScale = 1;
     public float xScaleLimit;
     Vector3 lastPos;
@@ -18,10 +17,12 @@ public class BlanketBehavior : MonoBehaviour
 	public float dragScale = 5;
 	SpriteRenderer spriteRenderer;
 	public float clickedScale;
+	PolygonCollider2D[] colliders;
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<PolygonCollider2D>();
+        colliders = GetComponents<PolygonCollider2D>();
+		colliders[1].enabled = false;
         rigidbody = GetComponent<Rigidbody2D>();
 		mouseDistance = 0;
 		spriteRenderer = GetComponent<SpriteRenderer>();
@@ -33,10 +34,10 @@ public class BlanketBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && BodyPart2.curStage != InteractionStage.TitleScreen)
+        if (Input.GetMouseButtonDown(0) && BodyPart2.curStage == InteractionStage.Blinds)
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (!dragging && collider.OverlapPoint(pos))
+            if (!dragging && colliders[0].OverlapPoint(pos))
             {
                 dragging = true;
                 lastPos = pos;
@@ -56,16 +57,12 @@ public class BlanketBehavior : MonoBehaviour
 				if(spriteIndex < blanketAnimation.Length - 1) {
 					transform.position = Vector3.Lerp(startPosition, blanketTarget, (float)spriteIndex / (blanketAnimation.Length - 1));
                 	//transform.Translate(-offset * 0.5f, 0, 0);
+				} else if(BodyPart2.curStage == InteractionStage.Blinds){
+					BodyPart2.curStage = InteractionStage.EverythingElse;
+					rigidbody.bodyType = RigidbodyType2D.Dynamic;
+					colliders[0].enabled = false;
+					colliders[1].enabled = true;
 				}
-                /*xScale -= offset;
-                Vector3 curScale = transform.localScale;
-                curScale.x = xScale;
-                transform.localScale = curScale;
-                if(xScale < xScaleLimit)
-                {
-                    falling = true;
-                    StartCoroutine(RemoveBlanket());
-                }*/
                 lastPos = pos;
             }
             else
@@ -86,8 +83,5 @@ public class BlanketBehavior : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, blanketTarget, t / offTime);
             yield return null;
         }
-		// Uncomment me when it safe
-		GameObject.Find("RightThigh").GetComponent<Rigidbody2D>().mass = 6;
-		GameObject.Find("LeftThigh").GetComponent<Rigidbody2D>().mass = 6;
     }
 }
