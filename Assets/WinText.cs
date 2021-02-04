@@ -46,6 +46,10 @@ public class WinText : MonoBehaviour
 
 	public IEnumerator MoveBodyToCenter(){
 		GameObject body = GameObject.Find("Body");
+		Rigidbody2D[] rbs = body.GetComponentsInChildren<Rigidbody2D>();
+		foreach(Rigidbody2D rb in rbs){
+			rb.bodyType = RigidbodyType2D.Static;
+		}
 		Vector3 startPos = body.transform.position;
 		for(float t = 0; t < fadeTime; t += Time.deltaTime) {
 			body.transform.position = Vector3.Lerp(startPos, Vector3.zero, t / fadeTime);
