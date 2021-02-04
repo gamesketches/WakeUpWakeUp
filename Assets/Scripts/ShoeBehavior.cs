@@ -21,6 +21,7 @@ public class ShoeBehavior : MonoBehaviour
             Debug.Log("Winner!!");
 			transform.parent = other.gameObject.transform;
 			transform.localPosition = Vector3.zero;
+			WinText.ActivateWinScreen();
         }
     }
 }

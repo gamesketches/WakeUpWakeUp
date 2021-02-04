@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum InteractionStage {TitleScreen, Blinds, EverythingElse};
 public class BodyPart2 : MonoBehaviour
 {
     bool dragging;
@@ -12,7 +13,7 @@ public class BodyPart2 : MonoBehaviour
     SpriteRenderer renderer;
     float myWeight;
     bool move;
-
+	public static InteractionStage curStage;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -20,6 +21,7 @@ public class BodyPart2 : MonoBehaviour
             print("here");
             GameObject BShadow = GameObject.Find("BlindShadow");
             BShadow.GetComponent<BlindShadowScript>().hideMyself = true;
+			curStage = InteractionStage.EverythingElse;
         }
     }
     // Start is called before the first frame update
@@ -32,12 +34,15 @@ public class BodyPart2 : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
         startColor = renderer.color;
         myWeight = rigidBody.mass;
+		curStage = InteractionStage.TitleScreen;
     }
 
     private void OnMouseDown()
     {
-        dragging = true;
-        rigidBody.mass = myWeight / 2;
+		if(curStage != InteractionStage.TitleScreen){
+			dragging = true;
+			rigidBody.mass = myWeight / 2;
+		}
     }
 
     private void OnMouseUp()

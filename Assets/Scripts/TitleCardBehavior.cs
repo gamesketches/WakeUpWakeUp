@@ -8,6 +8,7 @@ public class TitleCardBehavior : MonoBehaviour
 	Vector2 targetAnchor;
 	bool onScreen;
 	public float lerpTime;
+	public float scaleFactor;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,8 @@ public class TitleCardBehavior : MonoBehaviour
 			StartCoroutine(MoveOffScreen());
 			onScreen = false;
 		}
+		float curScale = 1 + (scaleFactor * Mathf.Sin(Time.time * 2.5f));
+		transform.localScale = new Vector3(curScale, curScale, curScale);
     }
 
 	IEnumerator MoveOffScreen() {
@@ -32,6 +35,7 @@ public class TitleCardBehavior : MonoBehaviour
 			rectTransform.anchoredPosition = Vector2.Lerp(startPos, targetAnchor, Mathf.SmoothStep(0, 1, t / lerpTime));
 			yield return null;
 		}
+		BodyPart2.curStage = InteractionStage.Blinds;
 		rectTransform.anchoredPosition = targetAnchor;
 	}
 }

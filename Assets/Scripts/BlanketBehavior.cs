@@ -26,12 +26,14 @@ public class BlanketBehavior : MonoBehaviour
 		mouseDistance = 0;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		startPosition = transform.position;
+		GameObject.Find("RightThigh").GetComponent<Rigidbody2D>().mass = 10;
+		GameObject.Find("LeftThigh").GetComponent<Rigidbody2D>().mass = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && BodyPart2.curStage != InteractionStage.TitleScreen)
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (!dragging && collider.OverlapPoint(pos))
@@ -84,6 +86,8 @@ public class BlanketBehavior : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, blanketTarget, t / offTime);
             yield return null;
         }
-
+		// Uncomment me when it safe
+		GameObject.Find("RightThigh").GetComponent<Rigidbody2D>().mass = 6;
+		GameObject.Find("LeftThigh").GetComponent<Rigidbody2D>().mass = 6;
     }
 }
