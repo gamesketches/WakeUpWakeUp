@@ -33,7 +33,7 @@ public class BlanketBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && BodyPart2.curStage != InteractionStage.TitleScreen)
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (!dragging && collider.OverlapPoint(pos))

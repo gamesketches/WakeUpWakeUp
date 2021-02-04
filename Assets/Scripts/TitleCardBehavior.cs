@@ -35,6 +35,7 @@ public class TitleCardBehavior : MonoBehaviour
 			rectTransform.anchoredPosition = Vector2.Lerp(startPos, targetAnchor, Mathf.SmoothStep(0, 1, t / lerpTime));
 			yield return null;
 		}
+		BodyPart2.curStage = InteractionStage.Blinds;
 		rectTransform.anchoredPosition = targetAnchor;
 	}
 }
