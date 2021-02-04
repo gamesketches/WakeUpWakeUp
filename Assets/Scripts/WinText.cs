@@ -8,6 +8,7 @@ public class WinText : MonoBehaviour
 	public static WinText instance;
 	public float fadeTime;
 	Text winText;
+	public string[] winQuotes;
 	
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,12 @@ public class WinText : MonoBehaviour
         
     }
 
+	public void RollRandomWinQuote() {
+		if(winQuotes.Length > 0) {
+			winText.text = winQuotes[Mathf.FloorToInt(winQuotes.Length * Random.value)];
+		}
+	}
+
 	public static void ActivateWinScreen() {
 		foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Scenery")) {
 			SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
@@ -31,6 +38,7 @@ public class WinText : MonoBehaviour
 				instance.StartCoroutine(instance.FadeOutSprite(spriteRenderer));
 			}
 		}
+		instance.RollRandomWinQuote();	
 		instance.StartCoroutine(instance.MoveBodyToCenter());
 		instance.winText.CrossFadeAlpha(1, 1, true);
 	}

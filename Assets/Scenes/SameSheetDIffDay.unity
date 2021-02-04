@@ -4219,6 +4219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 2
+  winQuotes:
+  - Seize The Day
+  - Carpe Dat Diem
 --- !u!114 &1033421019
 MonoBehaviour:
   m_ObjectHideFlags: 0
