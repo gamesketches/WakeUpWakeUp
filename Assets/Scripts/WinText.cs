@@ -50,12 +50,14 @@ public class WinText : MonoBehaviour
 		foreach(Rigidbody2D rb in rbs){
 			rb.bodyType = RigidbodyType2D.Static;
 		}
-		Vector3 startPos = body.transform.position;
+		Vector3 bodyPos = body.transform.GetChild(0).position;
+		Vector3 cameraStart = Camera.main.transform.position;
+		bodyPos.z = cameraStart.z;
 		for(float t = 0; t < fadeTime; t += Time.deltaTime) {
-			body.transform.position = Vector3.Lerp(startPos, Vector3.zero, t / fadeTime);
+			Camera.main.transform.position = Vector3.Lerp(cameraStart, bodyPos, t / fadeTime);
 			yield return null;
 		}
-		body.transform.position = Vector3.zero;
+		Camera.main.transform.position = bodyPos;
 	}
 		
 }
