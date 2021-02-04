@@ -9,6 +9,8 @@ public class TitleCardBehavior : MonoBehaviour
 	bool onScreen;
 	public float lerpTime;
 	public float scaleFactor;
+	public AlarmClock clock;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,9 @@ public class TitleCardBehavior : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && onScreen) {
 			StartCoroutine(MoveOffScreen());
 			onScreen = false;
+			clock.StartRinging();
+			GameObject BShadow = GameObject.Find("BlindShadow");
+			BShadow.GetComponent<BlindShadowScript>().OpenBlindsACrack();
 		}
 		float curScale = 1 + (scaleFactor * Mathf.Sin(Time.time * 2.5f));
 		transform.localScale = new Vector3(curScale, curScale, curScale);

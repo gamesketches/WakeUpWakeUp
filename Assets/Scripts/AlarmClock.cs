@@ -13,7 +13,7 @@ public class AlarmClock : MonoBehaviour
         collider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         alarmBell = GetComponent<AudioSource>();
-        alarmBell.Play();
+      
     }
 
     // Update is called once per frame
@@ -29,5 +29,10 @@ public class AlarmClock : MonoBehaviour
             alarmBell.Stop();
         }
        
+    }
+
+    public void StartRinging() {
+        animator.Play("Ringing");
+        alarmBell.Play();
     }
 }

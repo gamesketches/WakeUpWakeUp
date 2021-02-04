@@ -14,6 +14,8 @@ public class BlindShadowScript : MonoBehaviour
     SpriteRenderer srBlinds;
     public GameObject blindsBoltGameObject;
 
+    public Animator Shadow1;
+    public Animator Shadow2;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class BlindShadowScript : MonoBehaviour
             blindsBoltGameObject.transform.position = new Vector3(-9.25f, 10, 0);
             blindsHaveBeenOpened = true;
             srBlinds.sprite = openBlinds;
+            OpenBlindsAllTheWay();
             myAlpha -= .05f;
             sr.color = new Color(0, 0, 0, myAlpha);
             if (myAlpha <= -5) {
@@ -42,5 +45,16 @@ public class BlindShadowScript : MonoBehaviour
             sr.color = new Color(0, 0, 0, myAlpha);
         }
         
+    }
+
+    public void OpenBlindsACrack()
+    {
+        Shadow1.Play("SpotlightOpenCrack");
+        Shadow2.Play("SpotlightOpenCrack");
+    }
+
+    public void OpenBlindsAllTheWay() {
+        Shadow1.Play("SpotlightOpenFull");
+        Shadow2.Play("SpotlightOpenFull");
     }
 }
