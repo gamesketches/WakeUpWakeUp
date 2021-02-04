@@ -8,6 +8,7 @@ public class TitleCardBehavior : MonoBehaviour
 	Vector2 targetAnchor;
 	bool onScreen;
 	public float lerpTime;
+	public float scaleFactor;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,8 @@ public class TitleCardBehavior : MonoBehaviour
 			StartCoroutine(MoveOffScreen());
 			onScreen = false;
 		}
+		float curScale = 1 + (scaleFactor * Mathf.Sin(Time.time * 2.5f));
+		transform.localScale = new Vector3(curScale, curScale, curScale);
     }
 
 	IEnumerator MoveOffScreen() {
