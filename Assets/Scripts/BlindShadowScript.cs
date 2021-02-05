@@ -38,6 +38,7 @@ public class BlindShadowScript : MonoBehaviour
             sr.color = new Color(0, 0, 0, myAlpha);
             if (myAlpha <= -5) {
                 Destroy(gameObject);
+				GameObject.Find("LightGradient").SetActive(false);	
                 //Destroy(blindsBoltGameObject.gameObject);
             }
         }
