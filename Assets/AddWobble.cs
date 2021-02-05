@@ -10,15 +10,20 @@ public class AddWobble : MonoBehaviour
     bool wobbleMe;
     Quaternion rotation1;
     Quaternion rotation2;
+    public AudioSource bedCreak;
+    float raiseSound;
+    public static bool bedSounds;
+
 
     private void OnMouseEnter()
     {
-        
-        wobbleMe = true;
+       wobbleMe = true;
     }
 
+   
     private void OnMouseExit()
     {
+        
         wobbleMe = false;
     }
 
@@ -37,10 +42,23 @@ public class AddWobble : MonoBehaviour
             var factor = Mathf.PingPong(Time.time / duration, 1);
             // Optionally you can even add some ease-in and -out
             factor = Mathf.SmoothStep(0, 1, factor);
-
+           
             // Now interpolate between the two rotations on the current factor
             transform.rotation = Quaternion.Slerp(rotation1, rotation2, factor);
         }
+        
+
+        if (bedSounds)
+        {
+            raiseSound += 0.01f;
+        }
+        else
+        {
+            raiseSound -= 0.1f;
+        }
+
+        bedCreak.volume = raiseSound;
+        raiseSound = Mathf.Clamp(raiseSound, 0, 1);
     }
 
 

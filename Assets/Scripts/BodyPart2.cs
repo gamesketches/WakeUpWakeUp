@@ -47,12 +47,14 @@ public class BodyPart2 : MonoBehaviour
 			dragging = true;
 			//rigidBody.mass = myWeight / 2;
 		}
+        AddWobble.bedSounds = true;
     }
 
     private void OnMouseUp()
     {
         dragging = false;
         rigidBody.mass = myWeight;
+        AddWobble.bedSounds = false;
     }
 
     void Update()
@@ -66,6 +68,9 @@ public class BodyPart2 : MonoBehaviour
            
             rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 10 * Time.deltaTime));
 
+        }
+        else {
+           
         }
     }
 
