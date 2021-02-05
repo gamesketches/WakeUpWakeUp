@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WinText : MonoBehaviour
 {
 	public static WinText instance;
 	public float fadeTime;
 	Text winText;
+	public Text restartText;
 	public string[] winQuotes;
 	public string loseQuote;
 	public static bool beenTrig;
+
     // Start is called before the first frame update
     void Start()
     {
         winText = GetComponent<Text>();
 		winText.CrossFadeAlpha(0, 0, true);
+		restartText.CrossFadeAlpha(0,0,true);
 		instance = this;
     }
 
@@ -54,6 +58,7 @@ public class WinText : MonoBehaviour
 		}
 		instance.winText.text = instance.loseQuote;
 		instance.winText.CrossFadeAlpha(1,1,true);
+		instance.StartCoroutine(instance.HandleRestartText(2, 1));
 	}
 
 	public IEnumerator FadeOutSprite(SpriteRenderer renderer) {
@@ -81,6 +86,14 @@ public class WinText : MonoBehaviour
 			yield return null;
 		}
 		Camera.main.transform.position = new Vector3(bodyPos.x, bodyPos.y + 1.5f, bodyPos.z);
+		StartCoroutine(HandleRestartText(1, 1));
+	}
+
+	IEnumerator HandleRestartText(float delay, float duration) {
+		yield return new WaitForSecondsRealtime(delay);
+		instance.restartText.CrossFadeAlpha(1, duration, true);
+		while(!Input.GetMouseButtonDown(0)) yield return null;
+		SceneManager.LoadScene(0);
 	}
 		
 }
