@@ -50,7 +50,7 @@ public class BlanketBehavior : MonoBehaviour
             {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float offset = Mathf.Abs(pos.magnitude - lastPos.magnitude);
-				mouseDistance += (offset * 2);
+				mouseDistance += (offset * 5);
 				float adjustedDistance = Mathf.Clamp(mouseDistance / dragScale, 0, dragScale * blanketAnimation.Length - 1);
 				int spriteIndex = Mathf.FloorToInt(adjustedDistance);
 				spriteRenderer.sprite = blanketAnimation[spriteIndex];
