@@ -45,7 +45,7 @@ public class BodyPart2 : MonoBehaviour
     {
 		if(curStage == InteractionStage.EverythingElse){
 			dragging = true;
-			rigidBody.mass = myWeight / 2;
+			//rigidBody.mass = myWeight / 2;
 		}
     }
 
@@ -64,7 +64,7 @@ public class BodyPart2 : MonoBehaviour
         if (dragging == true)
         {
            
-            rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 15 * Time.deltaTime));
+            rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 10 * Time.deltaTime));
 
         }
     }
