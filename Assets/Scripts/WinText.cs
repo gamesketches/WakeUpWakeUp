@@ -62,10 +62,12 @@ public class WinText : MonoBehaviour
 		Vector3 cameraStart = Camera.main.transform.position;
 		bodyPos.z = cameraStart.z;
 		for(float t = 0; t < fadeTime; t += Time.deltaTime) {
-			Camera.main.transform.position = Vector3.Lerp(cameraStart, bodyPos, t / fadeTime);
+			//Camera.main.transform.position = Vector3.Lerp(cameraStart, bodyPos, t / fadeTime);
+			Camera.main.transform.position = Vector3.Lerp(cameraStart, new Vector3(bodyPos.x, bodyPos.y + 2, bodyPos.z), t / fadeTime);
+
 			yield return null;
 		}
-		Camera.main.transform.position = bodyPos;
+		Camera.main.transform.position = new Vector3(bodyPos.x, bodyPos.y + 2, bodyPos.z);
 	}
 		
 }

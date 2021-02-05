@@ -62,6 +62,7 @@ public class BlanketBehavior : MonoBehaviour
 					rigidbody.bodyType = RigidbodyType2D.Dynamic;
 					colliders[0].enabled = false;
 					colliders[1].enabled = true;
+                    spriteRenderer.sortingOrder = 0;
 				}
                 lastPos = pos;
             }

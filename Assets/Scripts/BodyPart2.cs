@@ -21,7 +21,11 @@ public class BodyPart2 : MonoBehaviour
             print("here");
             GameObject BShadow = GameObject.Find("BlindShadow");
             BShadow.GetComponent<BlindShadowScript>().hideMyself = true;
-			curStage = InteractionStage.EverythingElse;
+            curStage = InteractionStage.EverythingElse;
+        }
+
+        if (collision.gameObject.name == "Glass" || collision.gameObject.name == "Book") {
+            collision.gameObject.layer = 8;
         }
     }
     // Start is called before the first frame update

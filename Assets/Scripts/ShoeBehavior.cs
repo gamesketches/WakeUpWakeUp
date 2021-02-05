@@ -20,7 +20,7 @@ public class ShoeBehavior : MonoBehaviour
         if(other.tag == "foot") {
             Debug.Log("Winner!!");
 			transform.parent = other.gameObject.transform;
-			transform.localPosition = Vector3.zero;
+			//transform.localPosition = Vector3.zero;
 			WinText.ActivateWinScreen();
         }
     }
