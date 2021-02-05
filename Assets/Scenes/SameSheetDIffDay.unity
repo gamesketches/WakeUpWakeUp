@@ -2336,7 +2336,7 @@ MonoBehaviour:
   - {fileID: -5846656692321848282, guid: 12f900a90d7ef6e4280ef067fb691cef, type: 3}
   - {fileID: 5141108827750077187, guid: 12f900a90d7ef6e4280ef067fb691cef, type: 3}
   dragScale: 1
-  clickedScale: 1.03
+  clickedScale: 1.05
 --- !u!60 &472139733
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4163,7 +4163,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.18, y: -0.96}
   serializedVersion: 2
   m_Radius: 0.3
 --- !u!114 &798513585
@@ -5235,6 +5235,8 @@ MonoBehaviour:
   winQuotes:
   - Seize The Day
   - Carpe Dat Diem
+  - 'Dont forget to put your booties on cause its cold out there! '
+  - 'What a beautiful day! '
 --- !u!114 &1033421019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5249,14 +5251,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.5707547, b: 0.6870924, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1ccfb52cdd39944a69486699d69c3c65, type: 3}
-    m_FontSize: 40
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
@@ -6158,7 +6160,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.97}
   serializedVersion: 2
   m_Radius: 0.3
 --- !u!114 &1211809778
