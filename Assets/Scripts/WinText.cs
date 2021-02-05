@@ -9,6 +9,7 @@ public class WinText : MonoBehaviour
 	public float fadeTime;
 	Text winText;
 	public string[] winQuotes;
+	public string loseQuote;
 	public static bool beenTrig;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class WinText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		//if(Input.GetKeyDown(KeyCode.Q)) ActivateWinScreen();
+		if(Input.GetKeyDown(KeyCode.Q)) ActivateLoseScreen();
         
     }
 
@@ -45,7 +46,14 @@ public class WinText : MonoBehaviour
 	}
 
 	public static void ActivateLoseScreen(){
-
+		foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Scenery")) {
+			SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
+			if(spriteRenderer != null) {
+				instance.StartCoroutine(instance.FadeOutSprite(spriteRenderer));
+			}
+		}
+		instance.winText.text = instance.loseQuote;
+		instance.winText.CrossFadeAlpha(1,1,true);
 	}
 
 	public IEnumerator FadeOutSprite(SpriteRenderer renderer) {
