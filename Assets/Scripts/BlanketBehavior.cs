@@ -18,6 +18,7 @@ public class BlanketBehavior : MonoBehaviour
 	SpriteRenderer spriteRenderer;
 	public float clickedScale;
 	PolygonCollider2D[] colliders;
+    public AudioSource blanketSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +64,7 @@ public class BlanketBehavior : MonoBehaviour
 					colliders[0].enabled = false;
 					colliders[1].enabled = true;
                     spriteRenderer.sortingOrder = -4;
+                    blanketSFX.Play();
 				}
                 lastPos = pos;
             }
