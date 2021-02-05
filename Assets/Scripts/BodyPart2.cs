@@ -64,7 +64,7 @@ public class BodyPart2 : MonoBehaviour
         if (dragging == true)
         {
            
-            rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 10 * Time.deltaTime));
+            rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 15 * Time.deltaTime));
 
         }
     }
