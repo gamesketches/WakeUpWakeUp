@@ -26,7 +26,7 @@ public class BodyPart2 : MonoBehaviour
         }
 
         if (collision.gameObject.name == "Glass" || collision.gameObject.name == "Book") {
-            collision.gameObject.layer = 8;
+            collision.gameObject.layer = 11;
         }
     }
     // Start is called before the first frame update

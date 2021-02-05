@@ -16,6 +16,7 @@ public class BlindShadowScript : MonoBehaviour
 
     public Animator Shadow1;
     public Animator Shadow2;
+    public AudioSource blindSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +56,7 @@ public class BlindShadowScript : MonoBehaviour
     }
 
     public void OpenBlindsAllTheWay() {
+        blindSound.Play();
         Shadow1.Play("SpotlightOpenFull");
         Shadow2.Play("SpotlightOpenFull");
     }
