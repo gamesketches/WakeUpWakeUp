@@ -14,6 +14,7 @@ public class BodyPart2 : MonoBehaviour
     float myWeight;
     bool move;
 	public static InteractionStage curStage;
+    AudioSource crumple;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,7 +32,7 @@ public class BodyPart2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        crumple = GameObject.Find("Crumple").GetComponent<AudioSource>();
         dragging = false;
         collider = GetComponent<PolygonCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
@@ -45,6 +46,8 @@ public class BodyPart2 : MonoBehaviour
     {
 		if(curStage == InteractionStage.EverythingElse){
 			dragging = true;
+            crumple.pitch = Random.Range(1.5f, 2.0f);
+            crumple.Play();
 			//rigidBody.mass = myWeight / 2;
 		}
         AddWobble.bedSounds = true;
