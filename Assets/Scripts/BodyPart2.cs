@@ -23,6 +23,7 @@ public class BodyPart2 : MonoBehaviour
             GameObject BShadow = GameObject.Find("BlindShadow");
             BShadow.GetComponent<BlindShadowScript>().hideMyself = true;
             curStage = InteractionStage.EverythingElse;
+			StartCoroutine(GameObject.Find("LightGradient").GetComponent<LightGradient>().FadeOutGradient(0.33f));
         }
 
         if (collision.gameObject.name == "Glass" || collision.gameObject.name == "Book") {

@@ -37,6 +37,16 @@ public class LightGradient : MonoBehaviour
         
     }
 
+	public IEnumerator FadeOutGradient(float duration) {
+		SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+		Color startColor = renderer.color;
+		for(float t = 0; t < duration; t += Time.deltaTime) {
+			renderer.color = Color.Lerp(startColor, Color.clear, t / duration);
+			yield return null;
+		}
+		renderer.color = Color.clear;
+	}
+
 	void SetUpColorKeys() {
 		colorKeys = new GradientColorKey[2];
 		alphaKeys = new GradientAlphaKey[2];
