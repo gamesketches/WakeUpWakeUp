@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShoeBehavior : MonoBehaviour
 {
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,11 @@ public class ShoeBehavior : MonoBehaviour
         if(other.tag == "foot") {
             Debug.Log("Winner!!");
 			transform.parent = other.gameObject.transform;
-			//transform.localPosition = Vector3.zero;
-			WinText.ActivateWinScreen();
+            //transform.localPosition = Vector3.zero;
+            if (!WinText.beenTrig) {
+                WinText.ActivateWinScreen();
+            }
+			
         }
     }
 }

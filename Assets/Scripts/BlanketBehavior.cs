@@ -27,8 +27,8 @@ public class BlanketBehavior : MonoBehaviour
 		mouseDistance = 0;
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		startPosition = transform.position;
-		GameObject.Find("RightThigh").GetComponent<Rigidbody2D>().mass = 10;
-		GameObject.Find("LeftThigh").GetComponent<Rigidbody2D>().mass = 10;
+		//GameObject.Find("RightThigh").GetComponent<Rigidbody2D>().mass = 10;
+		//GameObject.Find("LeftThigh").GetComponent<Rigidbody2D>().mass = 10;
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class BlanketBehavior : MonoBehaviour
             {
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float offset = Mathf.Abs(pos.magnitude - lastPos.magnitude);
-				mouseDistance += (offset * 5);
+				mouseDistance += (offset * 7.5f);
 				float adjustedDistance = Mathf.Clamp(mouseDistance / dragScale, 0, dragScale * blanketAnimation.Length - 1);
 				int spriteIndex = Mathf.FloorToInt(adjustedDistance);
 				spriteRenderer.sprite = blanketAnimation[spriteIndex];
@@ -62,7 +62,7 @@ public class BlanketBehavior : MonoBehaviour
 					rigidbody.bodyType = RigidbodyType2D.Dynamic;
 					colliders[0].enabled = false;
 					colliders[1].enabled = true;
-                    spriteRenderer.sortingOrder = 0;
+                    spriteRenderer.sortingOrder = -4;
 				}
                 lastPos = pos;
             }

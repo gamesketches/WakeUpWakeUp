@@ -9,7 +9,7 @@ public class WinText : MonoBehaviour
 	public float fadeTime;
 	Text winText;
 	public string[] winQuotes;
-	
+	public static bool beenTrig;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +32,7 @@ public class WinText : MonoBehaviour
 	}
 
 	public static void ActivateWinScreen() {
+		beenTrig = true;
 		foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Scenery")) {
 			SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
 			if(spriteRenderer != null) {
