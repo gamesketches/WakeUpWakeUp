@@ -5,10 +5,11 @@ using UnityEngine;
 public class ShoeBehavior : MonoBehaviour
 {
     public AudioSource trumpets;
+	static int shoesWorn;
     // Start is called before the first frame update
     void Start()
     {
-        
+        shoesWorn = 0;
     }
 
     // Update is called once per frame
@@ -18,14 +19,14 @@ public class ShoeBehavior : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag == "foot") {
-            Debug.Log("Winner!!");
+        if(other.tag == "foot" && transform.parent == null) {
 			transform.parent = other.gameObject.transform;
+			shoesWorn++;
             //transform.localPosition = Vector3.zero;
-            if (!WinText.beenTrig) {
+            if (shoesWorn == 2 && !WinText.beenTrig) {
                 trumpets.Play();
                 WinText.ActivateWinScreen();
-            }
+            } else Debug.Log(shoesWorn);
 			
         }
     }
