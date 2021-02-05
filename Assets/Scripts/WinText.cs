@@ -44,6 +44,10 @@ public class WinText : MonoBehaviour
 		instance.winText.CrossFadeAlpha(1, 1, true);
 	}
 
+	public static void ActivateLoseScreen(){
+
+	}
+
 	public IEnumerator FadeOutSprite(SpriteRenderer renderer) {
 		Color startColor = renderer.color;
 		for(float t = 0; t < fadeTime; t += Time.deltaTime) {
