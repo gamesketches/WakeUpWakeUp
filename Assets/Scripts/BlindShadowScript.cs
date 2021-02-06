@@ -22,7 +22,7 @@ public class BlindShadowScript : MonoBehaviour
     {
         sr = gameObject.GetComponent<SpriteRenderer>();
         srBlinds = BlindsGameObject.GetComponent<SpriteRenderer>();
-
+        blindsHaveBeenOpened = false;
         myAlpha = .99f;
     }
 
