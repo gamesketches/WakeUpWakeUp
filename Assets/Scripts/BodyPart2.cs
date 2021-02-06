@@ -15,6 +15,7 @@ public class BodyPart2 : MonoBehaviour
     bool move;
 	public static InteractionStage curStage;
     AudioSource crumple;
+    public static bool bodyMoving;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,8 +50,9 @@ public class BodyPart2 : MonoBehaviour
 			dragging = true;
             crumple.pitch = Random.Range(1.5f, 2.0f);
             crumple.Play();
-			//rigidBody.mass = myWeight / 2;
-		}
+            //rigidBody.mass = myWeight / 2;
+            bodyMoving = true;
+        }
         AddWobble.bedSounds = true;
     }
 
@@ -59,6 +61,7 @@ public class BodyPart2 : MonoBehaviour
         dragging = false;
         rigidBody.mass = myWeight;
         AddWobble.bedSounds = false;
+        bodyMoving = false;
     }
 
     void Update()
@@ -69,12 +72,12 @@ public class BodyPart2 : MonoBehaviour
         }
         if (dragging == true)
         {
-           
+            
             rigidBody.MovePosition(Vector3.MoveTowards(transform.position, lastPos, 10 * Time.deltaTime));
 
         }
         else {
-           
+            
         }
     }
 
