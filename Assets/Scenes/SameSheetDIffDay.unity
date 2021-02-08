@@ -5787,7 +5787,6 @@ GameObject:
   m_Component:
   - component: {fileID: 829977923}
   - component: {fileID: 829977926}
-  - component: {fileID: 829977925}
   - component: {fileID: 829977924}
   m_Layer: 0
   m_Name: Mattress (1)
@@ -5956,20 +5955,6 @@ PolygonCollider2D:
       - {x: 2.552959, y: -2.7600594}
       - {x: 2.7395213, y: -2.7250788}
       - {x: 2.9027636, y: -2.655118}
---- !u!114 &829977925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829977922}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c714ffd6e700457aa093607428283cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultPos: {x: 0, y: 0, z: 0}
-  bedCreak: {fileID: 0}
 --- !u!212 &829977926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6862,6 +6847,133 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1010016846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010016847}
+  - component: {fileID: 1010016848}
+  m_Layer: 0
+  m_Name: Snoring
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010016847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010016846}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1524258129}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1010016848
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010016846}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 73dc618e9d8be4c23a80df8b17dbac4d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1033143331
 GameObject:
   m_ObjectHideFlags: 0
@@ -7424,7 +7536,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 72da1f29311b544c8bc8f7f94da9ffc1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 85dcebfe44fd746c3874303a75e682d8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 0.87
@@ -10293,6 +10405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPos: {x: 0, y: 0, z: 0}
   bedCreak: {fileID: 1063462341}
+  Snoring: {fileID: 0}
 --- !u!212 &1388466341
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11325,6 +11438,7 @@ Transform:
   - {fileID: 840806877}
   - {fileID: 306914808}
   - {fileID: 1796745396}
+  - {fileID: 1010016847}
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12482,6 +12596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPos: {x: 0, y: 0, z: 0}
   bedCreak: {fileID: 1063462341}
+  Snoring: {fileID: 0}
 --- !u!212 &1680515923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12914,6 +13029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPos: {x: 0, y: 0, z: 0}
   bedCreak: {fileID: 1063462341}
+  Snoring: {fileID: 0}
 --- !u!212 &1696293885
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13538,6 +13654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPos: {x: 0, y: 0, z: 0}
   bedCreak: {fileID: 1063462341}
+  Snoring: {fileID: 1010016848}
 --- !u!60 &1750277266
 PolygonCollider2D:
   m_ObjectHideFlags: 0

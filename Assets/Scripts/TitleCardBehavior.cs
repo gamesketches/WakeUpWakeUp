@@ -11,6 +11,7 @@ public class TitleCardBehavior : MonoBehaviour
 	public float scaleFactor;
 	public AlarmClock clock;
 	public AudioSource rooster;
+	public static bool startSnoring;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class TitleCardBehavior : MonoBehaviour
 	    targetAnchor = rectTransform.anchoredPosition;
 		rectTransform.anchoredPosition = new Vector2(0,0);
 		onScreen = true;
+		startSnoring = true;
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class TitleCardBehavior : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && onScreen) {
 			StartCoroutine(MoveOffScreen());
 			onScreen = false;
+			
 			clock.StartRinging();
 			GameObject BShadow = GameObject.Find("BlindShadow");
 			BShadow.GetComponent<BlindShadowScript>().OpenBlindsACrack();
@@ -43,5 +46,6 @@ public class TitleCardBehavior : MonoBehaviour
 		}
 		BodyPart2.curStage = InteractionStage.Blinds;
 		rectTransform.anchoredPosition = targetAnchor;
+		startSnoring = false;
 	}
 }

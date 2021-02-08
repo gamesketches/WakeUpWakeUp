@@ -25,6 +25,7 @@ public class ShoeBehavior : MonoBehaviour
             //transform.localPosition = Vector3.zero;
             if (shoesWorn >= 2 && !WinText.beenTrig) {
                 trumpets.Play();
+                AddWobble.bedSounds = false;
                 WinText.ActivateWinScreen();
             } else Debug.Log(shoesWorn);
 			

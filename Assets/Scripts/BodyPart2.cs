@@ -31,6 +31,27 @@ public class BodyPart2 : MonoBehaviour
             collision.gameObject.layer = 11;
         }
     }
+
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collider.gameObject.name == "Mattress") {
+    //        if (bodyMoving) {
+    //            AddWobble.bedSounds = true;
+    //        }
+    //    }
+    //}
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collider.gameObject.name == "Mattress")
+    //    {
+    //        if (bodyMoving)
+    //        {
+    //            AddWobble.bedSounds = false;
+    //        }
+    //    }
+    //}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,17 +74,20 @@ public class BodyPart2 : MonoBehaviour
             crumple.Play();
             //rigidBody.mass = myWeight / 2;
             bodyMoving = true;
+         
         }
-        AddWobble.bedSounds = true;
+      AddWobble.bedSounds = true;
     }
 
     private void OnMouseUp()
     {
         dragging = false;
         rigidBody.mass = myWeight;
-        AddWobble.bedSounds = false;
         bodyMoving = false;
+        AddWobble.bedSounds = false;
     }
+
+   
 
     void Update()
     {

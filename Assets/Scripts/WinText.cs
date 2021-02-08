@@ -27,7 +27,7 @@ public class WinText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(Input.GetKeyDown(KeyCode.Q)) ActivateLoseScreen();
+		//if(Input.GetKeyDown(KeyCode.Q)) ActivateLoseScreen();
         
     }
 

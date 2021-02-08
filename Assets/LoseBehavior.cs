@@ -12,7 +12,8 @@ public class LoseBehavior : MonoBehaviour
         {
                 print("LOST");
                 trumpets.Play();
-                WinText.ActivateLoseScreen();  
+            AddWobble.bedSounds = false;
+            WinText.ActivateLoseScreen();  
         }
     }
 }
