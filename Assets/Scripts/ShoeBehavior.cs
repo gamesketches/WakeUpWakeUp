@@ -23,7 +23,7 @@ public class ShoeBehavior : MonoBehaviour
 			transform.parent = other.gameObject.transform;
 			shoesWorn++;
             //transform.localPosition = Vector3.zero;
-            if (shoesWorn == 2 && !WinText.beenTrig) {
+            if (shoesWorn >= 2 && !WinText.beenTrig) {
                 trumpets.Play();
                 WinText.ActivateWinScreen();
             } else Debug.Log(shoesWorn);

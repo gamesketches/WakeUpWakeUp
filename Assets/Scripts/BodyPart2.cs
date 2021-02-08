@@ -42,6 +42,7 @@ public class BodyPart2 : MonoBehaviour
         startColor = renderer.color;
         myWeight = rigidBody.mass;
 		curStage = InteractionStage.TitleScreen;
+        bodyMoving = false;
     }
 
     private void OnMouseDown()

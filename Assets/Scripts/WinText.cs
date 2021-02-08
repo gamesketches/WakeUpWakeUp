@@ -21,6 +21,7 @@ public class WinText : MonoBehaviour
 		winText.CrossFadeAlpha(0, 0, true);
 		restartText.CrossFadeAlpha(0,0,true);
 		instance = this;
+		beenTrig = false;
     }
 
     // Update is called once per frame
@@ -94,6 +95,7 @@ public class WinText : MonoBehaviour
 		instance.restartText.CrossFadeAlpha(1, duration, true);
 		while(!Input.GetMouseButtonDown(0)) yield return null;
 		SceneManager.LoadScene(0);
+		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 		
 }
