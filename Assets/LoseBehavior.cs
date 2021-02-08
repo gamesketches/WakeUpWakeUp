@@ -11,8 +11,11 @@ public class LoseBehavior : MonoBehaviour
         if (other.tag == "foot" )
         {
                 print("LOST");
+            if (!WinText.beenTrig) {
                 trumpets.Play();
-            AddWobble.bedSounds = false;
+            }
+               
+             AddWobble.bedSounds = false;
             WinText.ActivateLoseScreen();  
         }
     }

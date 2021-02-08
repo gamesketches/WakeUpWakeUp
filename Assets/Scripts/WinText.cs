@@ -13,22 +13,30 @@ public class WinText : MonoBehaviour
 	public string[] winQuotes;
 	public string loseQuote;
 	public static bool beenTrig;
-
-    // Start is called before the first frame update
-    void Start()
+	public  AudioSource song;
+	float lowerSong;
+	// Start is called before the first frame update
+	void Start()
     {
         winText = GetComponent<Text>();
 		winText.CrossFadeAlpha(0, 0, true);
 		restartText.CrossFadeAlpha(0,0,true);
 		instance = this;
 		beenTrig = false;
+		lowerSong = 0.4f;
     }
 
     // Update is called once per frame
     void Update()
     {
 		//if(Input.GetKeyDown(KeyCode.Q)) ActivateLoseScreen();
-        
+
+		if (beenTrig) {
+			
+			lowerSong -= 0.0075f;
+			song.volume = lowerSong;
+		}
+		
     }
 
 	public void RollRandomWinQuote() {
@@ -51,7 +59,8 @@ public class WinText : MonoBehaviour
 	}
 
 	public static void ActivateLoseScreen(){
-		foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Scenery")) {
+		beenTrig = true;
+		foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Scenery")) {
 			SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
 			if(spriteRenderer != null) {
 				instance.StartCoroutine(instance.FadeOutSprite(spriteRenderer));
