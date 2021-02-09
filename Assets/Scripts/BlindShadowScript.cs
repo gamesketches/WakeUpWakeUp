@@ -31,10 +31,10 @@ public class BlindShadowScript : MonoBehaviour
     {
         if (hideMyself)
         {
+            OpenBlindsAllTheWay();
             blindsBoltGameObject.transform.position = new Vector3(-9.25f, 10, 0);
             blindsHaveBeenOpened = true;
-            srBlinds.sprite = openBlinds;
-            OpenBlindsAllTheWay();
+            srBlinds.sprite = openBlinds; 
             myAlpha -= .05f;
             sr.color = new Color(0, 0, 0, myAlpha);
             if (myAlpha <= 0) {
